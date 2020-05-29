@@ -42,8 +42,12 @@ octokit
       files: {
         "path/to/file1.txt": "Content for file1",
         "path/to/file2.txt": null, // deletes file if it exists
+        "path/to/file3.sh": {
+          content: "Content for file3",
+          mode: 100755, // one of the modes supported by the git tree object https://developer.github.com/v3/git/trees/#tree-object
+        },
       },
-      commit: "creating file1.txt & file2.txt",
+      commit: "creating file1.txt & file2.txt & file3.sh",
     },
   })
   .then((pr) => console.log(pr.data.number));
